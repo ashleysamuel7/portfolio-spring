@@ -1,13 +1,15 @@
 package com.portfolio.entity;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "portfolio")
+@Getter
+@Setter
 public class Portfolio {
 
     @Id

@@ -1,42 +1,46 @@
 package com.portfolio.controller;
 
-import com.portfolio.ResponseDTO.APIResponse;
-import com.portfolio.entity.User;
+import com.portfolio.RequestDTO.PortfolioDTO;
 import com.portfolio.service.PortfolioService;
-import com.portfolio.service.UserService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@AllArgsConstructor
-@RequestMapping("/api/v1")
+import java.net.URI;
+import java.util.List;
 
+@RestController
+@RequestMapping("/api/portfolios")
+@RequiredArgsConstructor
 public class PortfolioController {
 
-    PortfolioService portfolioService;
-    UserService userService;
+    private final PortfolioService service;
 
-    @PostMapping("/user")
-    public ResponseEntity<APIResponse<User>> createUser(@RequestBody User user) {
-        User createdUser = userService.createNewUser(user);
-
-        APIResponse<User> response = APIResponse.<User>builder()
-                .status("success")
-                .message("User created successfully")
-                .data(createdUser)
-                .build();
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    @GetMapping
+    public ResponseEntity<List<PortfolioDTO>> getAll() {
+        return ResponseEntity.ok(service.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<PortfolioDTO> getById(@PathVariable Integer id) {
+        return ResponseEntity.ok(service.findById(id));
+    }
 
-    @PutMapping("/user")
-    public ResponseEntity<APIResponse<User>> updateUser(@RequestBody User user) throws Exception {
-        User userResponse = userService.updateUserByEmail(user);
-        APIResponse<User> response = APIResponse.<User>builder().data(userResponse).status("success").build();
-        return ResponseEntity.ok(response);
+    @PostMapping
+    public ResponseEntity<PortfolioDTO> create(@RequestBody PortfolioDTO dto) {
+        PortfolioDTO created = service.create(dto);
+        return ResponseEntity.created(URI.create("/api/portfolios/" + created.getPortfolioId())).body(created);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PortfolioDTO> update(@PathVariable Integer id, @RequestBody PortfolioDTO dto) {
+        PortfolioDTO updated = service.update(id, dto);
+        return ResponseEntity.ok(updated);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

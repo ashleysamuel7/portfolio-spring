@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "Symbol CRUD API",
+    "_postman_id": "a1234567-b89c-40d0-aaaa-1234567890ab",
+    "description": "Postman collection for CRUD operations on Symbol entity",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Symbol",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"symbolId\": \"AAPL\",\n    \"symbolName\": \"Apple Inc.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/symbols",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Symbols",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/symbols",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Symbol by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/symbols/AAPL",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols", "AAPL"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Symbol",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"symbolName\": \"Apple Corporation\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/symbols/AAPL",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols", "AAPL"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Symbol",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/symbols/AAPL",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols", "AAPL"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

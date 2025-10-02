@@ -1,0 +1,196 @@
+{
+  "info": {
+    "name": "Portfolio CRUD API",
+    "_postman_id": "e1234567-abcd-40d0-8888-1234567890ab",
+    "description": "Postman collection for CRUD operations on Portfolio entity",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Portfolio",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"symbolId\": \"AAPL\",\n  \"qty\": 10,\n  \"buyPrice\": 172.50,\n  \"buyDate\": \"2025-09-30T10:30:00\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/portfolios",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "portfolios"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Portfolios",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/portfolios",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "portfolios"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Portfolio by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/portfolios/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "portfolios", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Portfolio",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"qty\": 12,\n  \"sellPrice\": 180.00,\n  \"sellDate\": \"2025-10-01T09:15:00\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/portfolios/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "portfolios", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Portfolio",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/portfolios/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "portfolios", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Symbol",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"symbolId\": \"AAPL\",\n    \"symbolName\": \"Apple Inc.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/symbols",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Symbols",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/symbols",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Symbol by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/symbols/AAPL",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols", "AAPL"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Symbol",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"symbolName\": \"Apple Corporation\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/symbols/AAPL",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols", "AAPL"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Symbol",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/symbols/AAPL",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "symbols", "AAPL"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

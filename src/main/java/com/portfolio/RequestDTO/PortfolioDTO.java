@@ -1,28 +1,24 @@
 package com.portfolio.RequestDTO;
 
-import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@NoArgsConstructor
 @Getter
+@Setter
+@AllArgsConstructor
 public class PortfolioDTO {
-
-    private int portfolioId;
-
-    private int userId;
-
+    private Integer portfolioId;
+    private Integer userId;
     private String symbolId;
-
-    private int qty;
-
+    private Integer qty;
     private BigDecimal buyPrice;
-
     private BigDecimal sellPrice;
-
     private LocalDateTime buyDate;
-
     private LocalDateTime sellDate;
-
 }
