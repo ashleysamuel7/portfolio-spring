@@ -27,6 +27,7 @@ public class SymbolController {
         return ResponseEntity.ok(service.findById(id));
     }
 
+
     @PostMapping
     public ResponseEntity<SymbolDTO> create(@RequestBody SymbolDTO dto) {
         SymbolDTO created = service.create(dto);
