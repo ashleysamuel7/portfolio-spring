@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SymbolDTO {
-  private String symbolId;
-  private String symbolName;
+public class UserLoginDTO {
+  private String username;
+  private String password;
 }
